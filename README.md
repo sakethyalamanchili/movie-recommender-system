@@ -3,7 +3,7 @@
 > Real-time movie recommendation service using Neural Collaborative Filtering (NCF) + ALS on MovieLens-1M, with full MLOps pipeline.
 
 **Course:** AIML Production Systems  
-**Team:** Solo — [Your Name]  
+**Team:** Solo — Saketh Yalamanchili  
 **Status:** 🟢 Active
 
 ---
