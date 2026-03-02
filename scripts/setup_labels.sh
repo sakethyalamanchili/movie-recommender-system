@@ -6,7 +6,7 @@
 #   chmod +x scripts/setup_labels.sh
 #   ./scripts/setup_labels.sh
 
-REPO="YOUR_USERNAME/movie-recommender-system"  # ← CHANGE THIS
+REPO="sakethyalamanchili/movie-recommender-system"  
 
 echo "Setting up labels for $REPO..."
 
