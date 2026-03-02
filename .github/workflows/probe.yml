@@ -1,0 +1,35 @@
+name: Probe API
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"  # Every 6 hours
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run probe
+        env:
+          API_URL: ${{ secrets.API_URL }}
+        run: |
+          python scripts/probe.py \
+            --api-url "$API_URL" \
+            --user-ids "1,2,3,4,5,10,50,100,500,1000"
+
+      - name: Write probe summary
+        run: |
+          echo "## Probe Results" >> $GITHUB_STEP_SUMMARY
+          echo "- **Time:** $(date -u)" >> $GITHUB_STEP_SUMMARY
+          echo "- **API URL:** \`${{ secrets.API_URL }}\`" >> $GITHUB_STEP_SUMMARY

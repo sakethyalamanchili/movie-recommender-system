@@ -1,0 +1,35 @@
+# API
+fastapi==0.115.0
+uvicorn[standard]==0.30.0
+prometheus-client==0.21.0
+
+# Kafka
+confluent-kafka==2.5.0
+
+# ML - ALS
+implicit==0.7.2
+scipy==1.13.0
+
+# ML - NCF
+torch==2.3.0
+numpy==1.26.4
+
+# Data
+pandas==2.2.0
+pyarrow==16.0.0
+pandera==0.20.0
+
+# Storage
+boto3==1.34.0
+
+# Utilities
+python-dotenv==1.0.1
+requests==2.32.0
+
+# Testing
+pytest==8.2.0
+pytest-cov==5.0.0
+httpx==0.27.0
+
+# Linting
+ruff==0.5.0

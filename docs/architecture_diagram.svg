@@ -1,0 +1,276 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="100%" style="stop-color:#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="kafkaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="apiGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d9488"/>
+      <stop offset="100%" style="stop-color:#0f766e"/>
+    </linearGradient>
+    <linearGradient id="mlGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="storageGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="cicdGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ea580c"/>
+      <stop offset="100%" style="stop-color:#c2410c"/>
+    </linearGradient>
+    <linearGradient id="monitorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#db2777"/>
+      <stop offset="100%" style="stop-color:#be185d"/>
+    </linearGradient>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <filter id="shadowLight" x="-2%" y="-2%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrowGray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrowTeal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0d9488"/>
+    </marker>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/>
+    </marker>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#ea580c"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrowPink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#db2777"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="820" fill="url(#bgGrad)" rx="8"/>
+
+  <!-- Title -->
+  <text x="600" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">NCF + ALS Movie Recommender — System Architecture</text>
+  <text x="600" y="58" text-anchor="middle" font-size="12" fill="#64748b">MovieLens-1M · Kafka Streaming · Cloud Run · Automated MLOps</text>
+
+  <!-- ==================== KAFKA CLUSTER (top center) ==================== -->
+  <g filter="url(#shadow)">
+    <rect x="340" y="80" width="520" height="130" rx="10" fill="url(#kafkaGrad)"/>
+    <text x="600" y="103" text-anchor="middle" font-size="13" font-weight="700" fill="#e2e8f0">MANAGED KAFKA (Confluent / Redpanda)</text>
+    <!-- Topics -->
+    <rect x="360" y="115" width="110" height="40" rx="6" fill="#334155" stroke="#475569" stroke-width="1"/>
+    <text x="415" y="133" text-anchor="middle" font-size="10" font-weight="600" fill="#94a3b8">📺</text>
+    <text x="415" y="147" text-anchor="middle" font-size="9.5" fill="#cbd5e1">{team}.watch</text>
+
+    <rect x="485" y="115" width="110" height="40" rx="6" fill="#334155" stroke="#475569" stroke-width="1"/>
+    <text x="540" y="133" text-anchor="middle" font-size="10" font-weight="600" fill="#94a3b8">⭐</text>
+    <text x="540" y="147" text-anchor="middle" font-size="9.5" fill="#cbd5e1">{team}.rate</text>
+
+    <rect x="360" y="163" width="110" height="40" rx="6" fill="#334155" stroke="#475569" stroke-width="1"/>
+    <text x="415" y="181" text-anchor="middle" font-size="10" font-weight="600" fill="#94a3b8">📤</text>
+    <text x="415" y="195" text-anchor="middle" font-size="9.5" fill="#cbd5e1">{team}.reco_req</text>
+
+    <rect x="485" y="163" width="110" height="40" rx="6" fill="#334155" stroke="#475569" stroke-width="1"/>
+    <text x="540" y="181" text-anchor="middle" font-size="10" font-weight="600" fill="#94a3b8">📥</text>
+    <text x="540" y="195" text-anchor="middle" font-size="9.5" fill="#cbd5e1">{team}.reco_resp</text>
+
+    <!-- Schema Registry -->
+    <rect x="625" y="120" width="215" height="75" rx="6" fill="#334155" stroke="#475569" stroke-width="1"/>
+    <text x="732" y="143" text-anchor="middle" font-size="11" font-weight="600" fill="#fbbf24">Schema Registry</text>
+    <text x="732" y="160" text-anchor="middle" font-size="9" fill="#94a3b8">Avro schemas for all topics</text>
+    <text x="732" y="176" text-anchor="middle" font-size="9" fill="#94a3b8">Compatibility: BACKWARD</text>
+  </g>
+
+  <!-- ==================== STREAM INGESTOR (left) ==================== -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="270" width="220" height="110" rx="10" fill="url(#storageGrad)"/>
+    <text x="150" y="296" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Stream Ingestor</text>
+    <text x="150" y="316" text-anchor="middle" font-size="9.5" fill="#bfdbfe">confluent_kafka Consumer</text>
+    <text x="150" y="334" text-anchor="middle" font-size="9.5" fill="#bfdbfe">Schema validation (pandera)</text>
+    <text x="150" y="352" text-anchor="middle" font-size="9.5" fill="#bfdbfe">Write Parquet snapshots</text>
+    <text x="150" y="370" text-anchor="middle" font-size="9.5" fill="#bfdbfe">Optional Redis cache</text>
+  </g>
+
+  <!-- ==================== OBJECT STORAGE (left bottom) ==================== -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="430" width="220" height="100" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="150" y="458" text-anchor="middle" font-size="13" font-weight="700" fill="#1e293b">Object Store (S3/R2)</text>
+    <text x="150" y="478" text-anchor="middle" font-size="9.5" fill="#475569">/snapshots/2025-mm-dd/</text>
+    <text x="150" y="495" text-anchor="middle" font-size="9.5" fill="#475569">/model_registry/vX.Y/</text>
+    <text x="150" y="512" text-anchor="middle" font-size="9.5" fill="#475569">metadata.json + model artifacts</text>
+  </g>
+
+  <!-- ==================== TRAINING PIPELINE (center) ==================== -->
+  <g filter="url(#shadow)">
+    <rect x="340" y="270" width="260" height="170" rx="10" fill="url(#mlGrad)"/>
+    <text x="470" y="296" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Training Pipeline</text>
+    <line x1="360" y1="306" x2="580" y2="306" stroke="#a78bfa" stroke-width="0.8"/>
+
+    <!-- ALS Box -->
+    <rect x="355" y="316" width="105" height="55" rx="5" fill="#5b21b6" stroke="#7c3aed" stroke-width="1"/>
+    <text x="407" y="337" text-anchor="middle" font-size="11" font-weight="600" fill="#e9d5ff">ALS Baseline</text>
+    <text x="407" y="354" text-anchor="middle" font-size="9" fill="#c4b5fd">implicit library</text>
+    <text x="407" y="367" text-anchor="middle" font-size="9" fill="#c4b5fd">Matrix Factor.</text>
+
+    <!-- NCF Box -->
+    <rect x="475" y="316" width="105" height="55" rx="5" fill="#5b21b6" stroke="#7c3aed" stroke-width="1"/>
+    <text x="527" y="337" text-anchor="middle" font-size="11" font-weight="600" fill="#e9d5ff">NCF (NeuMF)</text>
+    <text x="527" y="354" text-anchor="middle" font-size="9" fill="#c4b5fd">PyTorch</text>
+    <text x="527" y="367" text-anchor="middle" font-size="9" fill="#c4b5fd">GMF + MLP</text>
+
+    <!-- Eval -->
+    <rect x="355" y="382" width="225" height="48" rx="5" fill="#5b21b6" stroke="#7c3aed" stroke-width="1"/>
+    <text x="467" y="403" text-anchor="middle" font-size="10" font-weight="600" fill="#e9d5ff">Offline Eval: HR@10, NDCG@10</text>
+    <text x="467" y="418" text-anchor="middle" font-size="9" fill="#c4b5fd">Chrono split · Subpop analysis · Drift detect</text>
+  </g>
+
+  <!-- ==================== RECOMMENDER API (right) ==================== -->
+  <g filter="url(#shadow)">
+    <rect x="680" y="270" width="240" height="170" rx="10" fill="url(#apiGrad)"/>
+    <text x="800" y="296" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Recommender API</text>
+    <text x="800" y="314" text-anchor="middle" font-size="10" fill="#ccfbf1">FastAPI · Cloud Run</text>
+    <line x1="698" y1="324" x2="902" y2="324" stroke="#5eead4" stroke-width="0.8"/>
+    <text x="800" y="344" text-anchor="middle" font-size="10" fill="#f0fdfa">GET /recommend/{user_id}?k=20</text>
+    <text x="800" y="362" text-anchor="middle" font-size="10" fill="#f0fdfa">GET /healthz</text>
+    <text x="800" y="380" text-anchor="middle" font-size="10" fill="#f0fdfa">GET /metrics (Prometheus)</text>
+    <text x="800" y="398" text-anchor="middle" font-size="10" fill="#f0fdfa">POST /switch?model=...</text>
+    <line x1="698" y1="408" x2="902" y2="408" stroke="#5eead4" stroke-width="0.8"/>
+    <text x="800" y="426" text-anchor="middle" font-size="9.5" fill="#99f6e4">SLOs: p95 &lt; 200ms · Avail ≥ 70%</text>
+  </g>
+
+  <!-- ==================== PROBES / GH CRON (far right) ==================== -->
+  <g filter="url(#shadow)">
+    <rect x="990" y="270" width="170" height="100" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="1075" y="296" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">Probe Script</text>
+    <text x="1075" y="316" text-anchor="middle" font-size="9.5" fill="#475569">GH Actions Cron</text>
+    <text x="1075" y="334" text-anchor="middle" font-size="9.5" fill="#475569">→ /recommend</text>
+    <text x="1075" y="352" text-anchor="middle" font-size="9.5" fill="#475569">→ reco_req / reco_resp</text>
+  </g>
+
+  <!-- ==================== CI/CD (bottom left) ==================== -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="590" width="280" height="110" rx="10" fill="url(#cicdGrad)"/>
+    <text x="180" y="616" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">CI/CD — GitHub Actions</text>
+    <line x1="58" y1="626" x2="302" y2="626" stroke="#fdba74" stroke-width="0.8"/>
+    <text x="180" y="646" text-anchor="middle" font-size="10" fill="#fff7ed">lint → test (≥70% cov) → build image</text>
+    <text x="180" y="664" text-anchor="middle" font-size="10" fill="#fff7ed">→ push registry → deploy Cloud Run</text>
+    <text x="180" y="682" text-anchor="middle" font-size="10" fill="#fff7ed">Cron: retrain → eval gate → promote</text>
+  </g>
+
+  <!-- ==================== MONITORING (bottom center) ==================== -->
+  <g filter="url(#shadow)">
+    <rect x="380" y="590" width="280" height="110" rx="10" fill="url(#monitorGrad)"/>
+    <text x="520" y="616" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Monitoring &amp; Observability</text>
+    <line x1="398" y1="626" x2="642" y2="626" stroke="#f9a8d4" stroke-width="0.8"/>
+    <text x="520" y="646" text-anchor="middle" font-size="10" fill="#fdf2f8">Prometheus /metrics endpoint</text>
+    <text x="520" y="664" text-anchor="middle" font-size="10" fill="#fdf2f8">Grafana Cloud dashboards</text>
+    <text x="520" y="682" text-anchor="middle" font-size="10" fill="#fdf2f8">p95 latency · error rate · model ver</text>
+  </g>
+
+  <!-- ==================== A/B + EXPERIMENTATION (bottom right) ==================== -->
+  <g filter="url(#shadow)">
+    <rect x="720" y="590" width="240" height="110" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="840" y="616" text-anchor="middle" font-size="12" font-weight="700" fill="#1e293b">A/B Experimentation</text>
+    <line x1="738" y1="626" x2="942" y2="626" stroke="#cbd5e1" stroke-width="0.8"/>
+    <text x="840" y="646" text-anchor="middle" font-size="10" fill="#475569">user_id % 2 → ALS vs NCF</text>
+    <text x="840" y="664" text-anchor="middle" font-size="10" fill="#475569">Two-proportion z-test</text>
+    <text x="840" y="682" text-anchor="middle" font-size="10" fill="#475569">KPI: watch-after-reco rate</text>
+  </g>
+
+  <!-- ==================== PROVENANCE (far bottom right) ==================== -->
+  <g filter="url(#shadow)">
+    <rect x="1000" y="590" width="170" height="110" rx="10" fill="#fefce8" stroke="#ca8a04" stroke-width="1.5"/>
+    <text x="1085" y="616" text-anchor="middle" font-size="12" font-weight="700" fill="#713f12">Provenance Log</text>
+    <line x1="1018" y1="626" x2="1152" y2="626" stroke="#eab308" stroke-width="0.8"/>
+    <text x="1085" y="646" text-anchor="middle" font-size="9" fill="#78716c">request_id</text>
+    <text x="1085" y="660" text-anchor="middle" font-size="9" fill="#78716c">model_version</text>
+    <text x="1085" y="674" text-anchor="middle" font-size="9" fill="#78716c">data_snapshot_id</text>
+    <text x="1085" y="688" text-anchor="middle" font-size="9" fill="#78716c">pipeline_git_sha</text>
+  </g>
+
+  <!-- ==================== DATA FLOW ARROWS ==================== -->
+
+  <!-- Kafka → Ingestor -->
+  <path d="M 415 210 L 415 240 Q 415 255 400 255 L 200 255 Q 150 255 150 270" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arrowBlue)" stroke-dasharray="6,3"/>
+  <text x="270" y="248" text-anchor="middle" font-size="8" fill="#2563eb" font-weight="600">consume events</text>
+
+  <!-- Ingestor → Object Store -->
+  <line x1="150" y1="380" x2="150" y2="430" stroke="#64748b" stroke-width="1.8" marker-end="url(#arrowGray)"/>
+  <text x="170" y="410" font-size="8" fill="#64748b">parquet</text>
+
+  <!-- Object Store → Training -->
+  <path d="M 260 470 L 310 470 Q 340 470 340 440 L 340 370 Q 340 350 360 350" stroke="#7c3aed" stroke-width="2" fill="none" marker-end="url(#arrowPurple)" stroke-dasharray="6,3"/>
+  <text x="308" y="415" text-anchor="middle" font-size="8" fill="#7c3aed" font-weight="600">read snapshots</text>
+
+  <!-- Training → Object Store (model artifacts) -->
+  <path d="M 355 420 L 310 445 Q 280 460 260 470" stroke="#7c3aed" stroke-width="1.5" fill="none" marker-end="url(#arrowPurple)"/>
+  <text x="285" y="442" text-anchor="middle" font-size="8" fill="#7c3aed">save model</text>
+
+  <!-- Object Store → API (load model) -->
+  <path d="M 260 490 L 600 490 Q 630 490 650 470 L 700 420 Q 720 400 740 400" stroke="#0d9488" stroke-width="2" fill="none" marker-end="url(#arrowTeal)" stroke-dasharray="6,3"/>
+  <text x="530" y="505" text-anchor="middle" font-size="8" fill="#0d9488" font-weight="600">load model artifacts</text>
+
+  <!-- Probe → API -->
+  <line x1="990" y1="330" x2="920" y2="350" stroke="#64748b" stroke-width="1.8" marker-end="url(#arrowGray)"/>
+  <text x="968" y="332" text-anchor="middle" font-size="8" fill="#64748b">probe</text>
+
+  <!-- Probe → Kafka (reco_req/resp) -->
+  <path d="M 1075 270 L 1075 230 Q 1075 210 1050 210 L 860 190 Q 840 188 840 188" stroke="#1a1a2e" stroke-width="1.5" fill="none" marker-end="url(#arrowGray)" stroke-dasharray="4,3"/>
+  <text x="980" y="224" text-anchor="middle" font-size="8" fill="#475569">write reco events</text>
+
+  <!-- API → Kafka (reco_responses) -->
+  <path d="M 800 270 L 800 240 Q 800 220 700 220 L 560 215 Q 545 213 545 210" stroke="#0d9488" stroke-width="1.5" fill="none" marker-end="url(#arrowTeal)"/>
+  <text x="690" y="235" text-anchor="middle" font-size="8" fill="#0d9488">emit responses</text>
+
+  <!-- API → Monitoring -->
+  <path d="M 780 440 L 680 540 Q 660 560 620 570 L 560 590" stroke="#db2777" stroke-width="1.8" fill="none" marker-end="url(#arrowPink)" stroke-dasharray="6,3"/>
+  <text x="650" y="530" text-anchor="middle" font-size="8" fill="#db2777" font-weight="600">/metrics</text>
+
+  <!-- CI/CD → API (deploy) -->
+  <path d="M 320 645 L 640 500 Q 660 490 680 440 L 680 390 Q 680 370 680 355" stroke="#ea580c" stroke-width="2" fill="none" marker-end="url(#arrowOrange)" stroke-dasharray="6,3"/>
+  <text x="470" y="540" text-anchor="middle" font-size="8" fill="#ea580c" font-weight="600">deploy revision</text>
+
+  <!-- CI/CD → Training (retrain cron) -->
+  <path d="M 180 590 L 270 490 Q 300 460 350 440 L 370 434" stroke="#ea580c" stroke-width="1.5" fill="none" marker-end="url(#arrowOrange)" stroke-dasharray="4,3"/>
+  <text x="235" y="540" text-anchor="middle" font-size="8" fill="#ea580c">retrain cron</text>
+
+  <!-- API → A/B -->
+  <path d="M 840 440 L 840 590" stroke="#64748b" stroke-width="1.5" fill="none" marker-end="url(#arrowGray)" stroke-dasharray="4,3"/>
+  <text x="855" y="520" font-size="8" fill="#64748b">split traffic</text>
+
+  <!-- API → Provenance -->
+  <path d="M 920 400 L 990 400 Q 1020 400 1040 430 L 1075 500 Q 1085 520 1085 550 L 1085 590" stroke="#ca8a04" stroke-width="1.5" fill="none" marker-end="url(#arrowGray)" stroke-dasharray="4,3"/>
+  <text x="1050" y="510" font-size="8" fill="#ca8a04">log trace</text>
+
+  <!-- ==================== LEGEND ==================== -->
+  <g transform="translate(40, 740)">
+    <text x="0" y="14" font-size="11" font-weight="700" fill="#334155">Legend</text>
+    <line x1="60" y1="8" x2="95" y2="8" stroke="#64748b" stroke-width="2" stroke-dasharray="6,3"/>
+    <text x="100" y="14" font-size="9" fill="#64748b">Async / Scheduled</text>
+    <line x1="200" y1="8" x2="235" y2="8" stroke="#64748b" stroke-width="2"/>
+    <text x="240" y="14" font-size="9" fill="#64748b">Synchronous</text>
+    <rect x="330" y="0" width="14" height="14" rx="3" fill="url(#kafkaGrad)"/>
+    <text x="350" y="13" font-size="9" fill="#64748b">Kafka</text>
+    <rect x="400" y="0" width="14" height="14" rx="3" fill="url(#mlGrad)"/>
+    <text x="420" y="13" font-size="9" fill="#64748b">ML Pipeline</text>
+    <rect x="500" y="0" width="14" height="14" rx="3" fill="url(#apiGrad)"/>
+    <text x="520" y="13" font-size="9" fill="#64748b">Serving</text>
+    <rect x="580" y="0" width="14" height="14" rx="3" fill="url(#cicdGrad)"/>
+    <text x="600" y="13" font-size="9" fill="#64748b">CI/CD</text>
+    <rect x="650" y="0" width="14" height="14" rx="3" fill="url(#monitorGrad)"/>
+    <text x="670" y="13" font-size="9" fill="#64748b">Monitoring</text>
+    <rect x="750" y="0" width="14" height="14" rx="3" fill="url(#storageGrad)"/>
+    <text x="770" y="13" font-size="9" fill="#64748b">Data/Ingestor</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="600" y="805" text-anchor="middle" font-size="9" fill="#94a3b8">Figure 1: End-to-end architecture — NCF + ALS Recommender System with MLOps Pipeline</text>
+</svg>

@@ -1,0 +1,10 @@
+{
+  "_comment": "Grafana dashboard placeholder — replace with exported JSON in M4",
+  "title": "Recommender API Dashboard",
+  "panels": [
+    { "title": "Request Rate", "type": "graph", "metric": "recommend_requests_total" },
+    { "title": "p95 Latency", "type": "graph", "metric": "histogram_quantile(0.95, recommend_latency_seconds_bucket)" },
+    { "title": "Error Rate", "type": "singlestat", "metric": "rate(recommend_requests_total{status='500'}[5m])" },
+    { "title": "Model Version", "type": "text", "metric": "from /healthz" }
+  ]
+}
